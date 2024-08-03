@@ -70845,17 +70845,17 @@ var STATE = {
 	window.getWorldProperty = getWorldProperty;
 
 	function getKeyboardProperty(property) {
-		const keyboard = window.keyboard;
-		if (!keyboard) return null;
-		const keys = Object.keys(keyboard);
-		const indexes = {
-			left: 74,
-			right: 76,
-			down: 75,
-			up: 73
-		};
-		return keyboard[keys[indexes[property]]]
-	}
+    const keyboard = window.keyboard;
+    if (!keyboard) return null;
+    const keys = Object.keys(keyboard);
+    const indexes = {
+        j: 74,  // Update key code for 'j'
+        l: 76,  // Update key code for 'l'
+        k: 75,  // Update key code for 'k'
+        i: 73   // Update key code for 'i'
+    };
+    return keyboard[keys[indexes[property]]];
+}
 	window.getKeyboardProperty = getKeyboardProperty;
 
 	function getClientProperty(property) {
@@ -70943,10 +70943,10 @@ var STATE = {
 		initRespawn()
 		if (getUserProperty("alive") && getClientProperty("socket")) {
 			if (Settings.Spectator.enabled) {
-				if (getKeyboardProperty("left").bind(window.keyboard)()) getUserProperty("cam").x += Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("right").bind(window.keyboard)()) getUserProperty("cam").x -= Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("down").bind(window.keyboard)()) getUserProperty("cam").y -= Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("up").bind(window.keyboard)()) getUserProperty("cam").y += Settings.Spectator.speed * 100
+				if (getKeyboardProperty("j").bind(window.keyboard)()) getUserProperty("cam").x += Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("l").bind(window.keyboard)()) getUserProperty("cam").x -= Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("k").bind(window.keyboard)()) getUserProperty("cam").y -= Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("i").bind(window.keyboard)()) getUserProperty("cam").y += Settings.Spectator.speed * 100
 			}
 			if (getWorldProperty("fast_units")[getUserProperty("uid")]) {
 				const stamp = Date.now();
