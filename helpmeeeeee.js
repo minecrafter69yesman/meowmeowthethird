@@ -19086,7 +19086,7 @@ var STATE = {
 		"ⵠΔⲆᐃᐃⲆᐃ": "img/inv-reidite-protection-out.png",
 		"ᐃᐃᐃᐃᐃⲆⵠ": "img/inv-reidite-protection-in.png",
 		"ᐃΔⵠⲆⵠⲆⵠ": "img/inv-reidite-protection-click.png",
-		"ᐃⲆⲆⵠⵠⲆⲆ": "img/night-lava-dragon-sword.png// lava dragon sw
+		"ᐃⲆⲆⵠⵠⲆⲆ": "img/night-lava-dragon-sword.png" ,// lava dragon sw
 		"ⲆΔΔⲆᐃᐃΔ": "img/night-lava-dragon-sword.png",
 		"ⵠᐃⲆⵠΔⲆⵠ": "img/inv-lava-dragon-sword-out.png",
 		"ᐃᐃᐃΔᐃᐃⵠ": "img/inv-lava-dragon-sword-in.png",
@@ -71392,7 +71392,7 @@ var STATE = {
 			document.querySelector("#cancel_sure_delete").style.opacity = "0.5";
 		
 		const gui = new guify({
-			title: "snowfall",
+			title: "snowfal",
 			align: "right",
 			width: 600,
 			opacity: .67,
