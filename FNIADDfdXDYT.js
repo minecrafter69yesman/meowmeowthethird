@@ -70849,10 +70849,10 @@ var STATE = {
 		if (!keyboard) return null;
 		const keys = Object.keys(keyboard);
 		const indexes = {
-			j: 74,
-			l: 76,
-			k: 75,
-			i: 73
+			left: 74,
+			right: 76,
+			down: 75,
+			up: 73
 		};
 		return keyboard[keys[indexes[property]]]
 	}
@@ -70943,10 +70943,10 @@ var STATE = {
 		initRespawn()
 		if (getUserProperty("alive") && getClientProperty("socket")) {
 			if (Settings.Spectator.enabled) {
-				if (getKeyboardProperty("j").bind(window.keyboard)()) getUserProperty("cam").x += Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("l").bind(window.keyboard)()) getUserProperty("cam").x -= Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("k").bind(window.keyboard)()) getUserProperty("cam").y -= Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("i").bind(window.keyboard)()) getUserProperty("cam").y += Settings.Spectator.speed * 100
+				if (getKeyboardProperty("left").bind(window.keyboard)()) getUserProperty("cam").x += Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("right").bind(window.keyboard)()) getUserProperty("cam").x -= Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("down").bind(window.keyboard)()) getUserProperty("cam").y -= Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("up").bind(window.keyboard)()) getUserProperty("cam").y += Settings.Spectator.speed * 100
 			}
 			if (getWorldProperty("fast_units")[getUserProperty("uid")]) {
 				const stamp = Date.now();
