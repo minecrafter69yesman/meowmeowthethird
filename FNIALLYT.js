@@ -70849,10 +70849,10 @@ var STATE = {
 		if (!keyboard) return null;
 		const keys = Object.keys(keyboard);
 		const indexes = {
-			left: 31,
-			right: 32,
-			bottom: 34,
-			top: 33
+			left: 74,
+			right: 76,
+			bottom: 75,
+			top: 73
 		};
 		return keyboard[keys[indexes[property]]]
 	}
@@ -70943,25 +70943,11 @@ var STATE = {
 		initRespawn()
 		if (getUserProperty("alive") && getClientProperty("socket")) {
 			if (Settings.Spectator.enabled) {
-    // Bind the keyboard events to specific keys
-    window.addEventListener('keydown', function(event) {
-        const speed = Settings.Spectator.speed * 100;
-        
-        // Move camera based on key pressed
-        if (event.key === 'j') {
-            getUserProperty("cam").x -= speed; // Move left
-        } 
-        else if (event.key === 'l') {
-            getUserProperty("cam").x += speed; // Move right
-        } 
-        else if (event.key === 'k') {
-            getUserProperty("cam").y -= speed; // Move up
-        } 
-        else if (event.key === 'i') {
-            getUserProperty("cam").y += speed; // Move down
-        }
-    });
-}
+				if (getKeyboardProperty("left").bind(window.keyboard)()) getUserProperty("cam").x += Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("right").bind(window.keyboard)()) getUserProperty("cam").x -= Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("bottom").bind(window.keyboard)()) getUserProperty("cam").y -= Settings.Spectator.speed * 100;
+				if (getKeyboardProperty("top").bind(window.keyboard)()) getUserProperty("cam").y += Settings.Spectator.speed * 100
+			}
 			if (getWorldProperty("fast_units")[getUserProperty("uid")]) {
 				const stamp = Date.now();
 				if (Settings.AutoTotem.enabled && stamp - Stamps.AutoTotem > 60 && getUserProperty("team").length == 0) {
