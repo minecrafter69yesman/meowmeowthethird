@@ -70943,11 +70943,25 @@ var STATE = {
 		initRespawn()
 		if (getUserProperty("alive") && getClientProperty("socket")) {
 			if (Settings.Spectator.enabled) {
-				if (getKeyboardProperty("j").bind(window.keyboard)()) getUserProperty("cam").x += Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("l").bind(window.keyboard)()) getUserProperty("cam").x -= Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("k").bind(window.keyboard)()) getUserProperty("cam").y -= Settings.Spectator.speed * 100;
-				if (getKeyboardProperty("i").bind(window.keyboard)()) getUserProperty("cam").y += Settings.Spectator.speed * 100
-			}
+    // Bind the keyboard events to specific keys
+    window.addEventListener('keydown', function(event) {
+        const speed = Settings.Spectator.speed * 100;
+        
+        // Move camera based on key pressed
+        if (event.key === 'j') {
+            getUserProperty("cam").x -= speed; // Move left
+        } 
+        else if (event.key === 'l') {
+            getUserProperty("cam").x += speed; // Move right
+        } 
+        else if (event.key === 'k') {
+            getUserProperty("cam").y -= speed; // Move up
+        } 
+        else if (event.key === 'i') {
+            getUserProperty("cam").y += speed; // Move down
+        }
+    });
+}
 			if (getWorldProperty("fast_units")[getUserProperty("uid")]) {
 				const stamp = Date.now();
 				if (Settings.AutoTotem.enabled && stamp - Stamps.AutoTotem > 60 && getUserProperty("team").length == 0) {
@@ -72294,4 +72308,3 @@ getWorldProperty("fast_units")[getUserProperty("uid")].ⵠⲆΔΔ = qdsd
 
 },100)
 */
-
