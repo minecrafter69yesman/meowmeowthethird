@@ -71392,7 +71392,7 @@ var STATE = {
 			document.querySelector("#cancel_sure_delete").style.opacity = "0.5";
 		
 		const gui = new guify({
-			title: "snowfall",
+			title: "snow",
 			align: "right",
 			width: 600,
 			opacity: .67,
